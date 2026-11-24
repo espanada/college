@@ -1,0 +1,99 @@
+/* Стиль «курсовой работы / ГОСТ Р 7.0.11-2011»: Times New Roman 14pt,
+   межстрочный интервал 1.5 (≈ line-height:1.5), поля 20/30 мм, чёрный текст */
+:root{
+  --page-w: 21cm;          /* лист A4 */
+  --m-left: 3cm;           /* левое поле 30 мм */
+  --m-right: 1.5cm;        /* правое 15 мм */
+  --m-top: 2cm;            /* верхнее 20 мм */
+  --m-bottom: 2cm;         /* нижнее 20 мм */
+}
+*{ box-sizing: border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0; padding:0;
+  font-family:"Times New Roman", "PT Serif", serif;
+  font-size:14pt; line-height:1.5; color:#000; background:#8a8f96;
+}
+
+/* ---------- Шапка сайта ---------- */
+header.site{
+  background:#1e3a5f; color:#fff; padding:18px 24px;
+  position:sticky; top:0; z-index:50; box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+header.site .wrap{ max-width:var(--page-w); margin:0 auto; }
+header.site h1{ margin:0; font-size:17pt; font-weight:bold; letter-spacing:.3px;}
+header.site p.sub{ margin:4px 0 10px; font-size:11pt; opacity:.85; }
+nav.toc{ display:flex; flex-wrap:wrap; gap:6px; }
+nav.toc a{
+  color:#fff; text-decoration:none; font-size:10.5pt;
+  border:1px solid rgba(255,255,255,.45); border-radius:4px; padding:2px 10px;
+}
+nav.toc a:hover{ background:rgba(255,255,255,.15); }
+
+/* ---------- Лист («страница» курсовой) ---------- */
+main{ padding:28px 8px 60px; }
+.sheet{
+  background:#fff; width:var(--page-w); margin:0 auto 28px;
+  padding:var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
+  box-shadow:0 3px 14px rgba(0,0,0,.45); min-height:29.7cm;
+  page-break-after:always;
+}
+.sheet .pagenum{ text-align:center; font-size:12pt; margin-top:10mm; }
+
+/* Титульный лист */
+.sheet.title{ text-align:center; }
+.sheet.title .inst{ line-height:1.35; font-size:13pt; }
+.sheet.title h2{ font-size:16pt; margin:26mm 0 6mm; }
+.sheet.title .mdk{ font-size:14pt; margin:2mm 0; }
+.sheet.title .topic{ font-size:16pt; font-weight:bold; margin:14mm 0 20mm; }
+.sheet.title table.fio{ margin:auto; border-collapse:collapse; text-align:left; font-size:13pt;}
+.sheet.title table.fio td{ padding:4px 8px; vertical-align:bottom; }
+.sheet.title .blank{ display:inline-block; min-width:52mm; border-bottom:1px solid #000; }
+.sheet.title .city{ margin-top:auto; }
+.sheet.title .foot{ position:relative; margin-top:30mm; }
+
+/* ---------- Типографика курсовой ---------- */
+h2.sec{ font-size:15pt; text-align:center; text-transform:uppercase; margin:0 0 12pt; letter-spacing:.2px;}
+h3.sub{ font-size:14pt; font-weight:bold; margin:16pt 0 8pt; }
+p{ margin:0 0 8pt; text-indent:1.25cm; text-align:justify; }
+p.noind{ text-indent:0; }
+ul.gost, ol.gost{ margin:4pt 0 10pt; padding-left:1.6cm; }
+ul.gost li, ol.gost li{ margin-bottom:4pt; text-align:justify; }
+.center{ text-align:center; text-indent:0; }
+.small{ font-size:11pt; }
+
+/* Рисунки и подписи по ЕСКД */
+figure{ margin:14pt 0; text-align:center; text-indent:0; }
+figure img{ max-width:100%; border:1px solid #ccc; background:#fff; }
+figcaption{ font-size:12pt; margin-top:6pt; text-align:center; }
+figcaption b{ font-style:normal; }
+
+/* Таблицы */
+table.data{ border-collapse:collapse; width:100%; font-size:12pt; margin:10pt 0; }
+table.data caption{ caption-side:top; text-align:left; font-size:12pt; margin-bottom:6pt; }
+table.data th, table.data td{ border:1px solid #000; padding:4px 7px; vertical-align:top; }
+table.data th{ background:#eef1f5; font-weight:bold; text-align:center; }
+td.num{ text-align:center; }
+
+/* Формулы */
+.formula{ text-align:center; text-indent:0; margin:10pt 0; font-size:13pt; }
+.formula i{ font-family:"Times New Roman", serif; }
+
+/* Блок «Схема» с SVG */
+.svgbox{ border:1px solid #999; padding:6px; background:#fff; }
+.svgbox svg{ width:100%; height:auto; display:block; }
+
+/* Примечание/выноска */
+.note{ border-left:3px solid #1e3a5f; background:#f4f7fb; padding:8pt 12pt; margin:12pt 0; font-size:12pt; text-indent:0;}
+.note p{ text-indent:0; margin:0 0 6pt;}
+
+footer.site{ text-align:center; color:#fff; padding:18px; font-size:11pt; }
+
+@media print{
+  body{ background:#fff; }
+  header.site, nav.toc, footer.site, .noprint{ display:none !important; }
+  .sheet{ box-shadow:none; margin:0; width:auto; min-height:0; }
+}
+@media (max-width:900px){
+  .sheet{ width:100%; min-height:0; --m-left:1.5cm; }
+}
